@@ -2,6 +2,7 @@
 try :
     from Config import RabbitMqServerConfigure
     from Sub import RabbitMqSubscriber
+    from settings import HOST, QUEUE, EXCHANGE, ROUTE_KEY
 
 except Exception as e :
     print(f'Some modules are missing: {e}')
@@ -10,12 +11,13 @@ except Exception as e :
 if __name__ == "__main__" :
 
     serverConfig = RabbitMqServerConfigure(
-            host = 'localhost',
-            queue = 'hello',
-            exchange = 'amq.direct',
-            routingKey = 'hello'
+            host = HOST,
+            queue = QUEUE,
+            exchange = EXCHANGE,
+            routingKey = ROUTE_KEY
         )
 
     serverSubscriber = RabbitMqSubscriber(serverConfig)
 
     serverSubscriber.subscriber()
+

@@ -8,14 +8,15 @@ class RabbitMqSubscriber(RabbitMqInitServer) :
 
     def __init__ (self, serverConfig) :
         RabbitMqInitServer.__init__(self, serverConfig)
-          
+
+    @staticmethod
     def callback(ch, method, properties, body) :
         print("Message received: ", body)
 
-    def subscriber() :
+    def subscriber(self) :
         self._channel.basic_consume(
             queue='q_short_url', 
-            on_message_callback = callback,
+            on_message_callback = self.callback,
             auto_ack=False
         )      
         print('Waiting for message')
