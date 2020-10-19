@@ -1,0 +1,14 @@
+{%extends "base.html" %}
+
+{%block title%}
+    About page
+{%endblock%}
+
+
+{%block content%}
+<p>
+    {% for name in userList%}
+       <p> {{name.name}}, {{name.email}} </p>
+    {%endfor%}
+</p>
+{%endblock%}

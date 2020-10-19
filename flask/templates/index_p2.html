@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Heading</h1>
+
+<p>My first paragraph. Name: {{content}} and age: {{age}}</p>
+
+<hr />
+{% for name in content%}
+    <p>{{name}}</p>
+{%endfor%}
+<hr />
+{% for x in range(10) %}
+    {%if x % 2 == 0%}
+        <p>{{x}}</p>
+    {%endif}
+{%endfor%}
+</body>
+</html>

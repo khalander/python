@@ -21,5 +21,5 @@ def getData(url) :
 myHtml = getData('https://www.mohfw.gov.in/')
 soup = BeautifulSoup(myHtml, 'html.parser')
 # print(soup)
-for tr in soup.find_all('table'):
+for tr in soup.find_all('tbody'):
     print(tr.get_text())
